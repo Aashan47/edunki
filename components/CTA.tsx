@@ -22,14 +22,12 @@ export default function CTA() {
               Contact us
               <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
-            <a
-              href={site.calendly}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href={site.consultationPath}
               className="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-ink"
             >
-              Book a call
-            </a>
+              Request a consultation
+            </Link>
           </div>
         </div>
       </div>

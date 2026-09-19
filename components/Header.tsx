@@ -54,14 +54,12 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <a
-            href={site.calendly}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={site.consultationPath}
             className="inline-flex items-center rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-ink-700"
           >
             Book a consultation
-          </a>
+          </Link>
         </div>
 
         <button
@@ -111,15 +109,13 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <a
-            href={site.calendly}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={site.consultationPath}
             onClick={() => setOpen(false)}
             className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-white"
           >
             Book a consultation
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

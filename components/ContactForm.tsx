@@ -1,62 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 import { site } from "@/lib/site";
+import { fieldClass, labelClass, submitForm } from "@/lib/forms";
 
 type Status = "idle" | "sending" | "sent" | "error";
-
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-
-const field =
-  "w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-300 transition-colors focus:border-ink focus:outline-none";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const wrapper = useRef<HTMLDivElement>(null);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
 
-    if (!ACCESS_KEY) {
-      setStatus("error");
-      setError(
-        "The form is not connected yet. Add NEXT_PUBLIC_WEB3FORMS_KEY to .env.local — or email us directly.",
-      );
-      return;
-    }
-
     setStatus("sending");
     setError("");
 
-    const data = new FormData(form);
-    data.append("access_key", ACCESS_KEY);
-    data.append("subject", "New enquiry from the edunki website");
-    data.append("from_name", "edunki website");
+    const result = await submitForm(form, "New enquiry from the edunki website");
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: data,
-      });
-      const json = await res.json();
-
-      if (json.success) {
-        setStatus("sent");
-        form.reset();
-      } else {
-        setStatus("error");
-        setError(json.message || "Something went wrong. Please try again.");
-      }
-    } catch {
+    if (result.ok) {
+      setStatus("sent");
+      form.reset();
+      wrapper.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
       setStatus("error");
-      setError("Could not reach the server. Please try again, or email us.");
+      setError(result.message);
     }
   }
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-line bg-white p-8 text-center">
+      <div
+        ref={wrapper}
+        className="rounded-2xl border border-line bg-white p-8 text-center"
+      >
         <p className="font-display text-xl font-semibold text-ink">
           Thanks for contacting us!
         </p>
@@ -76,6 +56,7 @@ export default function ContactForm() {
 
   return (
     <form
+      ref={wrapper as unknown as React.RefObject<HTMLFormElement>}
       onSubmit={onSubmit}
       className="rounded-2xl border border-line bg-white p-6 sm:p-8"
     >
@@ -90,10 +71,7 @@ export default function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="first-name"
-            className="mb-1.5 block text-xs font-medium text-ink-500"
-          >
+          <label htmlFor="first-name" className={labelClass}>
             First name
           </label>
           <input
@@ -102,15 +80,12 @@ export default function ContactForm() {
             type="text"
             required
             autoComplete="given-name"
-            className={field}
+            className={fieldClass}
             placeholder="Ayesha"
           />
         </div>
         <div>
-          <label
-            htmlFor="last-name"
-            className="mb-1.5 block text-xs font-medium text-ink-500"
-          >
+          <label htmlFor="last-name" className={labelClass}>
             Last name
           </label>
           <input
@@ -119,17 +94,14 @@ export default function ContactForm() {
             type="text"
             required
             autoComplete="family-name"
-            className={field}
+            className={fieldClass}
             placeholder="Khan"
           />
         </div>
       </div>
 
       <div className="mt-4">
-        <label
-          htmlFor="email"
-          className="mb-1.5 block text-xs font-medium text-ink-500"
-        >
+        <label htmlFor="email" className={labelClass}>
           Email
         </label>
         <input
@@ -138,16 +110,13 @@ export default function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          className={field}
+          className={fieldClass}
           placeholder="you@example.com"
         />
       </div>
 
       <div className="mt-4">
-        <label
-          htmlFor="message"
-          className="mb-1.5 block text-xs font-medium text-ink-500"
-        >
+        <label htmlFor="message" className={labelClass}>
           Message
         </label>
         <textarea
@@ -155,7 +124,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className={`${field} resize-y`}
+          className={`${fieldClass} resize-y`}
           placeholder="Leave us a message..."
         />
       </div>
@@ -172,13 +141,24 @@ export default function ContactForm() {
         </p>
       ) : null}
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
-      >
-        {status === "sending" ? "Sending…" : "Submit"}
-      </button>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-700 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {status === "sending" ? "Sending…" : "Submit"}
+        </button>
+        <p className="text-xs text-ink-300">
+          Need a full consultation?{" "}
+          <Link
+            href={site.consultationPath}
+            className="font-medium text-ink-500 underline underline-offset-4 hover:text-ink"
+          >
+            Use the detailed form
+          </Link>
+        </p>
+      </div>
     </form>
   );
 }

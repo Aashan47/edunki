@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: BASE_URL, lastModified: now, priority: 1 },
+    { url: `${BASE_URL}/consultation`, lastModified: now, priority: 0.9 },
     { url: `${BASE_URL}/resources`, lastModified: now, priority: 0.6 },
     ...services.map((s) => ({
       url: `${BASE_URL}/services/${s.slug}`,

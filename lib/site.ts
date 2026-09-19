@@ -4,7 +4,8 @@ export const site = {
   description:
     "edunki is an education consultancy platform that provides all the services from career counselling to admission guidance.",
   email: "eedunki@gmail.com",
-  calendly: "https://calendly.com/eedunki",
+  /** Where every "book a consultation" call to action points. */
+  consultationPath: "/consultation",
   instagram:
     "https://www.instagram.com/edunkiofficial?igsh=M2cweDY3MXVrZGk2&utm_source=qr",
   linkedin:

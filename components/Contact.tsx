@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import ContactForm from "./ContactForm";
-import { InstagramIcon, LinkedInIcon, MailIcon, VideoIcon } from "./Icons";
+import { InstagramIcon, LinkedInIcon, MailIcon } from "./Icons";
 
 export default function Contact() {
   return (
@@ -20,7 +20,7 @@ export default function Contact() {
               may have.
             </p>
 
-            <div className="mt-9 space-y-3">
+            <div className="mt-9">
               <a
                 href={`mailto:${site.email}`}
                 className="flex items-center gap-4 rounded-2xl border border-line bg-white p-5 transition-colors hover:border-ink/25"
@@ -34,25 +34,6 @@ export default function Contact() {
                   </span>
                   <span className="block text-sm text-ink-500">
                     {site.email}
-                  </span>
-                </span>
-              </a>
-
-              <a
-                href={site.calendly}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-line bg-white p-5 transition-colors hover:border-ink/25"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent">
-                  <VideoIcon />
-                </span>
-                <span>
-                  <span className="block text-sm font-medium text-ink">
-                    Set up a meeting on Zoom
-                  </span>
-                  <span className="block text-sm text-ink-500">
-                    Pick a slot on Calendly
                   </span>
                 </span>
               </a>

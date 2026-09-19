@@ -20,7 +20,7 @@ const legacyRedirects = [
   ["/items/master-&-phd-samples", "/resources/master-phd-samples"],
   ["/items/deadlines", "/resources/deadlines"],
   ["/items/css-books-(recommended)", "/resources/css-books-recommended"],
-  ["/book-online", "/#contact"],
+  ["/book-online", "/consultation"],
 ];
 
 const nextConfig: NextConfig = {

@@ -31,14 +31,12 @@ export default function Hero() {
             Explore our services
             <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
-          <a
-            href={site.calendly}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={site.consultationPath}
             className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/60 hover:bg-white/5"
           >
-            Book a free call
-          </a>
+            Request a consultation
+          </Link>
         </div>
 
         <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-10 sm:mt-20 lg:grid-cols-4">

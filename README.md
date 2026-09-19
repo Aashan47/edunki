@@ -34,7 +34,7 @@ string, save, done.
 
 | File | Holds |
 |---|---|
-| `lib/site.ts` | Brand name, email, Calendly link, socials, nav items, the four stats |
+| `lib/site.ts` | Brand name, email, socials, nav items, the four stats |
 | `lib/services.ts` | The four services and every numbered step on their detail pages |
 | `lib/team.ts` | The seven team members and their full bios |
 | `lib/resources.ts` | The Resources listing entries |

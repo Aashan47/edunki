@@ -66,21 +66,3 @@ export function MailIcon({ className = "h-5 w-5" }: IconProps) {
     </svg>
   );
 }
-
-export function VideoIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2.5" y="5.5" width="13" height="13" rx="2.5" />
-      <path d="m15.5 10.5 6-3.5v10l-6-3.5z" />
-    </svg>
-  );
-}
