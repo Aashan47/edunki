@@ -81,8 +81,7 @@ export const team: Member[] = [
     role: "Educational Advisor (Technology Programs)",
     photo: "/media/team/aashan-javed.png",
     bio: [
-      `Aashan holds a Bachelor of Science degree in Computer Science from the National University of Computer and Emerging Sciences and is the founder of the tech startup "VALFIRST SOFTWARES." With a strong academic foundation and entrepreneurial spirit, Aashan brings a wealth of knowledge and experience to the role of Technology Advisor.`,
-      `In addition to his academic achievements and startup leadership, Aashan has extensive research experience in the field of computer science, contributing to advancements in areas such as artificial intelligence, data analytics, and software engineering. His research background further enhances his ability to provide strategic guidance, technical consultation, and innovative solutions to our team and clients, driving forward-thinking initiatives and fostering growth and innovation in the ever-evolving landscape of technology.`,
+      `Aashan Javed is an ML Scientist working at FortyGuard, a climate tech company working on urban heat intelligence. He holds a BS in Computer Science from FAST NUCES Islamabad, where he received a gold medal and a place on the Rector's List of Honour. He is also the founder of Valfirst AI, a registered Pakistani company. His research asks a narrow question with wide consequences: when a machine learning model reports how uncertain it is, can that number be trusted?`,
     ],
   },
 ];
