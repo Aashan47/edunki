@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #16163f;
+  --color-ink-700: #2a2a63;
+  --color-ink-500: #4a4a7a;
+  --color-ink-300: #8f8f9f;
+
+  --color-paper: #ffffff;
+  --color-paper-soft: #f7f7fb;
+  --color-line: #e2e2ea;
+
+  --color-accent: #4f46e5;
+  --color-accent-soft: #eef0ff;
+
+  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Soft brand mesh used behind the hero — replaces the Wix stock gradient PNG. */
+.hero-mesh {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(
+      60rem 40rem at 78% 12%,
+      rgba(99, 102, 241, 0.55),
+      transparent 60%
+    ),
+    radial-gradient(
+      45rem 35rem at 10% 85%,
+      rgba(56, 189, 248, 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 30rem at 50% 0%,
+      rgba(167, 139, 250, 0.35),
+      transparent 65%
+    );
+}
