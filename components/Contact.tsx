@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import ContactForm from "./ContactForm";
-import { InstagramIcon, LinkedInIcon, MailIcon } from "./Icons";
+import { MailIcon } from "./Icons";
 
 export default function Contact() {
   return (
@@ -36,27 +36,6 @@ export default function Contact() {
                     {site.email}
                   </span>
                 </span>
-              </a>
-            </div>
-
-            <div className="mt-7 flex items-center gap-3">
-              <a
-                href={site.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="edunki on Instagram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-ink-500 transition-colors hover:border-ink hover:text-ink"
-              >
-                <InstagramIcon className="h-[1.1rem] w-[1.1rem]" />
-              </a>
-              <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="edunki on LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-ink-500 transition-colors hover:border-ink hover:text-ink"
-              >
-                <LinkedInIcon className="h-[1.1rem] w-[1.1rem]" />
               </a>
             </div>
           </div>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { services } from "@/lib/services";
 import Logo from "./Logo";
-import { InstagramIcon, LinkedInIcon } from "./Icons";
 
 export default function Footer() {
   return (
@@ -13,28 +12,7 @@ export default function Footer() {
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
               {site.description}
-            </p>
-            <div className="mt-5 flex items-center gap-3">
-              <a
-                href={site.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="edunki on Instagram"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink-500 transition-colors hover:border-ink hover:text-ink"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="edunki on LinkedIn"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink-500 transition-colors hover:border-ink hover:text-ink"
-              >
-                <LinkedInIcon />
-              </a>
-            </div>
-          </div>
+            </p>          </div>
 
           <div>
             <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-ink-300">
