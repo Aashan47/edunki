@@ -81,7 +81,7 @@ export const team: Member[] = [
     role: "Educational Advisor (Technology Programs)",
     photo: "/media/team/aashan-javed.png",
     bio: [
-      `Aashan Javed is an ML Scientist working at FortyGuard, a climate tech company working on urban heat intelligence. He holds a BS in Computer Science from FAST NUCES Islamabad, where he received a gold medal and a place on the Rector's List of Honour. He is also the founder of Valfirst AI, a registered Pakistani company. His research asks a narrow question with wide consequences: when a machine learning model reports how uncertain it is, can that number be trusted?`,
+      `Aashan Javed is an ML Scientist working at FortyGuard, a climate tech company working on urban heat intelligence. He holds a BS in Computer Science from FAST NUCES Islamabad, where he received a gold medal and a place on the Rector's List of Honour. He is also the founder of Valfirst AI. His research asks a narrow question with wide consequences: when a machine learning model reports how uncertain it is, can that number be trusted?`,
     ],
   },
 ];
