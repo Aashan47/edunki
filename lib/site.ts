@@ -10,7 +10,7 @@ export const site = {
     "https://www.instagram.com/edunkiofficial?igsh=M2cweDY3MXVrZGk2&utm_source=qr",
   linkedin:
     "https://www.linkedin.com/in/edunki-education-and-consultancy-37b898301/",
-  credit: "Powered by VALFIRST SOFTWARES",
+  credit: "Powered by Valfirst AI",
 } as const;
 
 export const nav = [
